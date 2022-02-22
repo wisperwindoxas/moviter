@@ -126,3 +126,235 @@ header{
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+
+.categories {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+}
+
+.categories p{
+  padding: 8px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  color: #fff;
+  font-weight: 600;
+  background-color: rgb(213, 78, 20);
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.categories p:nth-of-type(3n){
+  background-color:green;
+}
+.categories p:nth-of-type(2n){
+  background-color:rgb(8, 14, 179);
+}
+.categories p:nth-of-type(5n){
+  background-color:rgb(141, 13, 184);
+}
+.categories p:nth-of-type(7n){
+  background-color:rgb(213, 149, 12);
+}
+
+.movies_cards{
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px 20px;
+  
+}
+
+
+.card{
+ width: 350px;
+ height: 500px;
+ background:url(https://lumiere-a.akamaihd.net/v1/images/p_blackwidow_21043_v2_6d1b73b8.jpeg);
+ background-size: cover;
+ position: relative;
+
+}
+.card{
+    border-radius:20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -ms-border-radius:20px;
+    -o-border-radius:20px;
+    transition:all .3s;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    -ms-transition:all .3s;
+    -o-transition:all .3s;
+}
+.title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      color: #fff;
+      text-align: center;
+      background:linear-gradient(to bottom, rgba(0, 0, 0, 0.543), rgb(0, 0, 0));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      padding-top:10px ;
+      border-radius:0px 0 20px 20px;
+      -webkit-border-radius:0px 0 20px 20px;
+      -moz-border-radius:0px 0 20px 20px;
+      -ms-border-radius:0px 0 20px 20px;
+      -o-border-radius:0px 0 20px 20px;
+}
+
+.title h3{
+  background-color: transparent;
+  font-size: 22px;
+  padding: 0 20px;
+}
+
+.title p{
+   background-color: transparent;
+  font-size: 18px;
+  color: gray;
+}
+
+.info_movies {
+  background: transparent;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.info_movies p{
+  color: #fff;
+}
+
+.rating{
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rating img{
+  width: 40px;
+  height: 40px;
+  margin-right:10px ;
+   background: transparent;
+}
+
+.time{
+   background: transparent;
+  display: flex;
+   justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.time svg{
+  margin: 0 10px;
+background: transparent;
+}
+
+.calendar{
+     background: transparent;
+  display: flex;
+   justify-content: center;
+  align-items: center;
+}
+.calendar svg{
+    margin-right: 10px;
+background: transparent;
+}
+
+.watch{
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  background-color: rgb(4, 83, 220);
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius:0 0 20px 20px;
+  -webkit-border-radius:0 0 20px 20px;
+  -moz-border-radius:0 0 20px 20px;
+  -ms-border-radius:0 0 20px 20px;
+  -o-border-radius:0 0 20px 20px;
+}
+
+.watch svg{
+  background: transparent;
+  
+}
+
+.watch:hover svg{
+  animation:arrowRight 1s infinite;
+  -webkit-animation:arrowRight 1s infinite;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s eas;
+  -moz-transition: 0.3s eas;
+  -ms-transition: 0.3s eas;
+  -o-transition: 0.3s eas;
+}
+
+
+.pagination{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin:20px auto;
+}
+.pagination p{
+  width: 50px;
+  height: 50px;
+  background-color: rgb(15, 60, 208);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes arrowRight {
+  0%{
+    transform:translateX(0px)  ;
+    -webkit-transform:translateX(0px)  ;
+    -moz-transform:translateX(0px)  ;
+    -ms-transform:translateX(0px)  ;
+    -o-transform:translateX(0px)  ;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+}
+  100%{
+    transform:translateX(300px)  ;
+    -webkit-transform:translateX(300px)  ;
+    -moz-transform:translateX(300px)  ;
+    -ms-transform:translateX(300px)  ;
+    -o-transform:translateX(300px)  ;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+}
+  
+}
