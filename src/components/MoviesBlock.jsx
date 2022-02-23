@@ -72,7 +72,11 @@ export default function MoviesBlock() {
 			<div className="movies_cards">
 				{films.map(film => {
 					return (
-					<div style={{ background:`url(${film.posterUrlPreview})`}} key={film.filmId} className="card">
+					<div style={
+						{background:`url(${film.posterUrlPreview})`,
+						backgroundRepeat:"no-repeat",
+						backgroundSize:"cover"}
+					} key={film.filmId} className="card">
 					
 					<div className="title">
 							<h3>{film.nameRu}</h3>

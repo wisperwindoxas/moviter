@@ -131,10 +131,12 @@ header{
   margin-top: 40px;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
+  justify-items: center;
   gap: 10px;
 }
 
 .categories p{
+
   padding: 8px;
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -170,6 +172,7 @@ header{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px 20px;
+  justify-items: center; 
   
 }
 
@@ -177,8 +180,9 @@ header{
 .card{
  width: 350px;
  height: 500px;
- background:url(https://lumiere-a.akamaihd.net/v1/images/p_blackwidow_21043_v2_6d1b73b8.jpeg);
  background-size: cover;
+ background-position:center;
+ background-repeat: no-repeat;
  position: relative;
 
 }
@@ -312,9 +316,11 @@ background: transparent;
 
 
 .pagination{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(16,1fr);
+  gap: 20px;
+  justify-items: center;
   padding: 10px;
   margin:20px auto;
 }
@@ -323,6 +329,7 @@ background: transparent;
   height: 50px;
   background-color: rgb(15, 60, 208);
   color: #fff;
+ 
   cursor: pointer;
   border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -332,6 +339,69 @@ background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 992px) {
+  .container{
+    padding: 20px;
+  }
+  .movies_cards{
+   grid-template-columns: repeat(3, 1fr);
+  }
+  .pagination{
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .card{
+    width: 400px;
+  }
+
+  .categories {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+  .categories p{
+    width: 220px;
+  }
+
+}
+@media (max-width: 768px) {
+  .movies_cards{
+   grid-template-columns: repeat(2, 1fr);
+  }
+  .pagination{
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .card{
+    width: 600px;
+    height: 700px;
+  }
+   .categories {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .categories p{
+    width: 220px;
+  }
+}
+@media (max-width: 578px) {
+  .movies_cards{
+   grid-template-columns: repeat(1, 1fr);
+  }
+  .pagination{
+    grid-template-columns: repeat(4,  1fr);
+  }
+  .pagination p{
+    width: 100%;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    font-size: 18px;
+}
+
+ 
+ 
 }
 
 @keyframes arrowRight {
