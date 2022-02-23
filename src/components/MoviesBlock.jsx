@@ -5,7 +5,7 @@ import React from 'react'
 export default function MoviesBlock() {
 
 	 const [films, setFilms] = React.useState([]);
-	 const [page,setPage] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
+	 const [page,] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
 	 const [currentPage, setCurrentPage] = React.useState(1)
 
 

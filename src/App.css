@@ -136,9 +136,10 @@ header{
 }
 
 .categories p{
-
-  padding: 8px;
+  
+  width: 100%;
   border-radius: 30px;
+  padding: 8px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -342,6 +343,10 @@ background: transparent;
 }
 
 @media (max-width: 992px) {
+   .container{
+    max-width:1280px;
+    border: 1px solid red;
+  }
   .container{
     padding: 20px;
   }
@@ -365,31 +370,46 @@ background: transparent;
 
 }
 @media (max-width: 768px) {
+  .container{
+    max-width:1200px;
+    border: 1px solid red;
+  }
   .movies_cards{
    grid-template-columns: repeat(2, 1fr);
   }
   .pagination{
+    width: 100%;
     grid-template-columns: repeat(8, 1fr);
+    justify-items: center;
+    border: 1px solid red;
   }
   .card{
     width: 600px;
     height: 700px;
   }
    .categories {
-    grid-template-columns: repeat(4, 1fr);
+     
+    grid-template-columns: repeat(3, 1fr);
   }
 
+
   .categories p{
-    width: 220px;
+    width: 100%;
+    border: 1px solid red;
   }
 }
 @media (max-width: 578px) {
+  .container{
+    max-width:630px;
+  }
   .movies_cards{
    grid-template-columns: repeat(1, 1fr);
   }
   .pagination{
-    grid-template-columns: repeat(4,  1fr);
+    grid-template-columns: repeat(1,  1fr);
   }
+
+
   .pagination p{
     width: 100%;
     border-radius: 0;
