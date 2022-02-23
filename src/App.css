@@ -161,6 +161,9 @@ header{
 .categories p:nth-of-type(7n){
   background-color:rgb(213, 149, 12);
 }
+.categories p:nth-of-type(4n){
+  background-color:rgb(23, 41, 41);
+}
 
 .movies_cards{
   margin-top: 40px;
