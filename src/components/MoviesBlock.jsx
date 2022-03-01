@@ -1,32 +1,28 @@
 import React from 'react'
-
-
+import {Link} from 'react-router-dom'
+import TrailPopup from './TrailPopup'
 
 export default function MoviesBlock() {
 
 	 const [films, setFilms] = React.useState([]);
 	 const [page,] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
+	 const [id, setId] = React.useState(0);
+	 
+	 const [popup, setPopup] = React.useState(false);
 	 const [currentPage, setCurrentPage] = React.useState(1)
 
 
   React.useEffect(() => {
     async function getFilmsPoster() {
-      await fetch(
-        `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${currentPage}`,
-        {
-          method: 'GET',
-          headers: {
-            'X-API-KEY': 'd64340e7-4400-466a-a78d-c00ed515f575',
-            'Content-Type': 'application/json',
-          },
-        }
-      )
+      await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2&language=ru-RU&page=${currentPage}`)
         .then((res) => res.json())
-        .then((json) => setFilms(json.films));
+        .then((json) => setFilms(json.results));
     }
 
     return getFilmsPoster();
   }, [setFilms, currentPage]);
+
+
 
 
 
@@ -36,7 +32,7 @@ export default function MoviesBlock() {
 		<div className="wrapper_movies">
 			
 			<div className="categories">
-					<p>аниме</p>
+					<Link to="anime"><p>аниме</p></Link>
 					<p>биографический</p>
 					<p>боевик</p>
 					<p>вестерн</p>
@@ -72,15 +68,18 @@ export default function MoviesBlock() {
 			<div className="movies_cards">
 				{films.map(film => {
 					return (
+					<Link onClick={() => setPopup(true)} to={`/${film.original_title}`}>
 					<div style={
-						{background:`url(${film.posterUrlPreview})`,
+						{background:`url(https://image.tmdb.org/t/p/w500${film.poster_path})`,
 						backgroundRepeat:"no-repeat",
 						backgroundSize:"cover"}
-					} key={film.filmId} className="card">
+					} key={film.filmId} className="card"
+					onClick={() => setId(film.id)}
+					>
 					
 					<div className="title">
-							<h3>{film.nameRu}</h3>
-							<p>{film.genres[0].genre}</p>
+							<h3>{film.title}</h3>
+							
 							
 							<div className="info_movies">
 								<div className="rating">
@@ -93,7 +92,7 @@ export default function MoviesBlock() {
 								</div>
 								<div className="calendar">
 									<svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-3.5-7h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z"></path></svg>
-									<p>{film.year}</p>
+									<p>{film.release_date}</p>
 								</div>
 							</div>
 
@@ -104,9 +103,12 @@ export default function MoviesBlock() {
 					</div>
 
 				</div>
+					
+				</Link>
+				
 					)
 				})}
-				
+				{popup ? <TrailPopup setPopup={setPopup} id={id}/> : ""}
 			</div>
 			
 		</div>
@@ -114,7 +116,7 @@ export default function MoviesBlock() {
 
 		<div className="pagination">
 			{page.map(page => {
-				return <p onClick={() => setCurrentPage(page)} key={page}>{page}</p>
+				return <Link key={page} to={`/${page}`}><p onClick={() => setCurrentPage(page)} key={page}>{page}</p></Link>
 			})}
 			
 		</div>
