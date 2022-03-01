@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import TrailPopup from './TrailPopup'
+
 
 export default function MoviesBlock() {
 
@@ -8,7 +8,7 @@ export default function MoviesBlock() {
 	 const [page,] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
 	 const [id, setId] = React.useState(0);
 	 
-	 const [popup, setPopup] = React.useState(false);
+
 	 const [currentPage, setCurrentPage] = React.useState(1)
 
 
@@ -20,7 +20,7 @@ export default function MoviesBlock() {
     }
 
     return getFilmsPoster();
-  }, [setFilms, currentPage]);
+  }, [currentPage]);
 
 
 
@@ -68,12 +68,12 @@ export default function MoviesBlock() {
 			<div className="movies_cards">
 				{films.map(film => {
 					return (
-					<Link onClick={() => setPopup(true)} to={`/${film.original_title}`}>
+					<Link key={film.id}  to={`/${film.id}`}>
 					<div style={
 						{background:`url(https://image.tmdb.org/t/p/w500${film.poster_path})`,
 						backgroundRepeat:"no-repeat",
 						backgroundSize:"cover"}
-					} key={film.filmId} className="card"
+					}  className="card"
 					onClick={() => setId(film.id)}
 					>
 					
@@ -108,7 +108,7 @@ export default function MoviesBlock() {
 				
 					)
 				})}
-				{popup ? <TrailPopup setPopup={setPopup} id={id}/> : ""}
+				
 			</div>
 			
 		</div>

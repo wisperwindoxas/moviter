@@ -1,14 +1,27 @@
+*{
+  background: transparent;
+}
+
 header{
   width: 100%;
   height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 450;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  background-color: #0044ff;
 }
 
 .container{
   width: 1400px;
   margin: 0 auto;
+}
+
+.home{
+  background-color: rgb(32, 32, 32);
 }
 
 .search{
@@ -116,6 +129,7 @@ header{
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  margin-top: 70px;
 }
 
 .slider img{
@@ -349,46 +363,104 @@ a{
   width: 100%;
   height: 100vh;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.658);
+  background-color: rgb(255, 255, 255);
   top: 0;
   left: 0;
   overflow: hidden;
   z-index: 340;
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  flex-direction: column;
 
 }
 
 .videoTrail{
-  width: 60%;
-  height: 80%;
-  border: 1px solid red;
+  width: 100%;
+  height: 570px;
+  
+  margin-top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
 }
+
+.videoTrail::after{
+  content: "";
+  background: linear-gradient(to right,rgb(74, 11, 137), rgba(74, 11, 137, 0.671));
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.movieBlock{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+  background: transparent;
+  
+}
+
+.poster{
+  width: 300px;
+  height: 450px;
+
+  background: transparent;
+}
+
+.poster img{
+  width: 100%;
+  height: 100%;
+}
+
 
 .movies_info{
-  width: 40%;
-  height: 80%;
-  border: 1px solid red;
-}
+  width: 1020px;
+  height: 450px;
 
-.close{
-  position: absolute;
-  right: 20px;
-  top: 20px;
   background: transparent;
-  cursor: pointer;
-  z-index: 400;
+  padding: 30px 20px;
+  color: #fff;
 }
 
-.close svg{
-  background-color: transparent;
+.overview{
+  padding: 10px 0;
 }
+
+.overview h3{
+  padding: 10px 0;
+  text-transform: capitalize;
+}
+
+.genres{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.genres > li{
+  margin-left: 10px;
+}
+
+
+.movie_genres{
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+
 
 @media (max-width: 992px) {
    .container{
     max-width:1280px;
-    border: 1px solid red;
+   
   }
   .container{
     padding: 20px;
@@ -415,7 +487,7 @@ a{
 @media (max-width: 768px) {
   .container{
     max-width:1200px;
-    border: 1px solid red;
+   
   }
   .movies_cards{
    grid-template-columns: repeat(2, 1fr);
@@ -424,7 +496,7 @@ a{
     width: 100%;
     grid-template-columns: repeat(8, 1fr);
     justify-items: center;
-    border: 1px solid red;
+    
   }
   .card{
     width: 600px;
@@ -438,7 +510,7 @@ a{
 
   .categories p{
     width: 100%;
-    border: 1px solid red;
+    
   }
 }
 @media (max-width: 578px) {
