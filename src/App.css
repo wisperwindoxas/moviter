@@ -8,7 +8,7 @@ header{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 450;
+  z-index: 10050;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -21,7 +21,7 @@ header{
 }
 
 .home{
-  background-color: rgb(32, 32, 32);
+  background-color: rgb(46, 46, 46);
 }
 
 .search{
@@ -336,8 +336,9 @@ background: transparent;
   grid-template-columns: repeat(16,1fr);
   gap: 20px;
   justify-items: center;
-  padding: 10px;
-  margin:20px auto;
+  padding: 40px 0;
+  margin:0px auto;
+  
 }
 .pagination p{
   width: 50px;
@@ -361,12 +362,9 @@ a{
 }
 .trail{
   width: 100%;
-  height: 100vh;
-  position: fixed;
   background-color: rgb(255, 255, 255);
   top: 0;
   left: 0;
-  overflow: hidden;
   z-index: 340;
   display: flex;
 
@@ -377,7 +375,7 @@ a{
 
 .videoTrail{
   width: 100%;
-  height: 570px;
+  height: 600px;
   
   margin-top: 120px;
   display: flex;
@@ -446,6 +444,7 @@ a{
 
 .genres > li{
   margin-left: 10px;
+  list-style: none;
 }
 
 
@@ -455,7 +454,114 @@ a{
   padding: 10px 0;
 }
 
+.cast{
+  width: 100%;
+  padding: 20px;
 
+  overflow: hidden;
+  
+}
+.castPeople{
+  box-shadow: 0 0 5px gray;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  border-radius: 10px;
+  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 10px;
+}
+
+.castActories{
+  min-width: 140px;
+  max-height: 270px;
+  text-align: center;
+  margin-left: 10px;
+}
+.castActories img{
+  width: 100%;
+}
+
+
+.castActories p{
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+.recomendtion{
+  width: 100%;
+
+  padding:10px;
+  overflow-x:auto;
+  display: flex;
+  align-items: center;
+}
+
+.movies_recoment{
+  min-width: 250px;
+  height: 300px;
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.movies_recoment img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  object-fit: cover;
+}
+
+
+
+.modal{
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.502);
+  z-index: 6999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.watchBtn{
+  width: 250px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 24px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(250, 230, 3);
+  color: #fff;
+  font-weight: bold;
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  -ms-border-radius:10px;
+  -o-border-radius:10px;
+  margin-top: 40px;
+}
 
 @media (max-width: 992px) {
    .container{
@@ -470,6 +576,7 @@ a{
   }
   .pagination{
     grid-template-columns: repeat(12, 1fr);
+    background-color: transparent;
   }
   .card{
     width: 400px;
@@ -484,6 +591,10 @@ a{
   }
 
 }
+
+
+
+
 @media (max-width: 768px) {
   .container{
     max-width:1200px;

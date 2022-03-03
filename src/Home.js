@@ -5,14 +5,14 @@ import MoviesBlock from './components/MoviesBlock';
 
 import Slider from './components/Slider';
 
-export default function Home() {
+export default function Home({currentPage}) {
   return (
     <div className='home'>
       
         <Header/>
           <Slider/>
 
-          <MoviesBlock/>
+          <MoviesBlock currentPage={currentPage}/>
     </div>
   )
 }
