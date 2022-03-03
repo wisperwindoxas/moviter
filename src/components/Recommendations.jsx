@@ -23,7 +23,7 @@ export default function Recommendations() {
       <div className="recomendtion">
         {recoment.map((recoment) => {
           return (
-            <Link  to={`${recoment.id}`}>
+            <Link key={recoment.id}  to={`${recoment.id}`}>
               <div
                 key={recoment.id}
                 className="movies_recoment"

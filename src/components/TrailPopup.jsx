@@ -12,6 +12,7 @@ export default function TrailPopup() {
   const [genres, setGenres]  = React.useState([])
   const [cast, setCast]  = React.useState([])
   const [modal, setModal]  = React.useState(false)
+  const [movieVideo, setMovieVideo]  = React.useState(false)
   const {id} = useParams()
   
 
@@ -35,11 +36,17 @@ export default function TrailPopup() {
     getMoviesCast()
   }, [id])
 
+  React.useEffect(() => {
+    async function getMoviesVideo(){
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=60413a5f672cfb8007082bc512040ca2&language=en-US`);
 
+      setMovieVideo(response.data.results)
+    }
+    getMoviesVideo()
+    //
+  }, [id])
 
-
-
-
+  
 
   return (
     <div className="trail">
@@ -67,19 +74,21 @@ export default function TrailPopup() {
               <p>{movieInfo.release_date} </p>
               <ul className="genres">
                 {genres.map((item) => {
-                  return <li>{item.name}</li>;
+               
+                  return <li key={item.id}>{item.name}</li>;
                 })}
               </ul>
             </div>
+            <h3>описания</h3>
             <p className="overview">
-              <h3>описания</h3>
+              
               {movieInfo.overview}
             </p>
             <button onClick={() => setModal(true)} className="watchBtn">
               <svg
                 stroke="currentColor"
                 fill="#fff"
-                stroke-width="0"
+                strokeWidth="0"
                 viewBox="0 0 16 16"
                 height="50px"
                 width="50px"
@@ -89,7 +98,7 @@ export default function TrailPopup() {
               </svg>
               Watch Trial
             </button>
-            {modal ? <Modal/> : ""}
+            {modal ? <Modal video={movieVideo} setModal={setModal}/> : ""}
           </div>
         </div>
       </div>
@@ -99,7 +108,7 @@ export default function TrailPopup() {
           <div className="castPeople">
             {cast.map((cast) => {
               return (
-                <div className="castActories">
+                <div key={cast.id} className="castActories">
                   <img
                     src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`}
                     alt=""
