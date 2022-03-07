@@ -1,63 +1,48 @@
 import React from 'react'
 import { Link} from 'react-router-dom';
-
-
+import axios from 'axios'
+import {Language} from './contextApi'
 export default function MoviesBlock({currentPage}) {
   const [films, setFilms] = React.useState([]);
-
-
+  const [categories, setCategories] = React.useState([])
+  const [language] = React.useContext(Language)
 
   React.useEffect(() => {
     async function getFilmsPoster() {
       await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2&language=ru-RU&page=${currentPage}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2&language=${
+          localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
+        }&page=${currentPage}`
       )
         .then((res) => res.json())
         .then((json) => setFilms(json.results));
     }
 
     return getFilmsPoster();
-  }, [currentPage]);
+  }, [currentPage, language]);
 
+  console.log(films);
 
+  React.useEffect(() => {
+      async function getGenres(){
+         const response = await axios.get(
+           `https://api.themoviedb.org/3/genre/movie/list?api_key=60413a5f672cfb8007082bc512040ca2&language=${
+             localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
+           }`
+         );
 
+         setCategories(response.data.genres);
+      }
+
+      return getGenres()
+  },[setCategories, language])
   return (
     <div className="container">
       <div className="wrapper_movies">
         <div className="categories">
-          <Link to="anime">
-            <p>аниме</p>
-          </Link>
-          <p>биографический</p>
-          <p>боевик</p>
-          <p>вестерн</p>
-          <p>военный</p>
-          <p>детектив</p>
-          <p>детский</p>
-          <p>документальный</p>
-          <p>драма</p>
-          <p>исторический</p>
-          <p>кинокомикс</p>
-          <p>комедия</p>
-          <p>концерт</p>
-          <p>короткометражный</p>
-          <p>криминал</p>
-          <p>мелодрама</p>
-          <p>мистика</p>
-          <p>музыка</p>
-          <p>мультфильм</p>
-          <p>мюзикл</p>
-          <p>научный</p>
-          <p>нуар</p>
-          <p>приключения</p>
-          <p>реалити-шоу</p>
-          <p>семейный</p>
-          <p>спорт</p>
-          <p>ток-шоу</p>
-          <p>триллер</p>
-          <p>ужасы</p>
-          <p>фантастика</p>
-          <p>фэнтези</p>
+            {categories.map(categorie => {
+                return <p key={categorie.id}>{categorie.name}</p>
+            })}
         </div>
 
         <div className="movies_cards">

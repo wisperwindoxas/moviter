@@ -1,31 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './App.css';
 import {Routes, Route} from 'react-router-dom'
 import TrailPopup from './components/TrailPopup'
 import Home from './Home'
+import {currentPages} from './components/contextApi'
+
+
 function App() {
 
+  const [currentPage,] = useContext(currentPages)
+
   
-
-
-  const [currentPage, setCurrentPage] = React.useState(1)
-  const [page,] = React.useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]);
 
   return (
     <div className="App">
         <Routes>
-          <Route path="/" element={<Home currentPage={currentPage}/>} excet />
+          <Route index path="/" element={<Home currentPage={currentPage}/>} excet />
           <Route path="popular/:id" element={<TrailPopup/>} excet />
           <Route path="popular/*" element={<TrailPopup/>}  />
+          
       </Routes>
-    <div className="container">
-      	<div className="pagination ">
-			{page.map(page => {
-				return <p onClick={() => setCurrentPage(page)} key={page}>{page}</p>
-			})}
-			
-		</div>
-    </div>
+        
     </div>
   );
 }
