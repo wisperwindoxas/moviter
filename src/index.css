@@ -51,3 +51,80 @@ code {
 }
 
 
+.searchBtn{
+  border: none;
+  outline: none;
+  background-color: rgb(219, 164, 11);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+
+.movies_block{
+  padding: 30px 0;
+  margin-top: 70px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies_container{
+  width: 1000px;
+  height: 250px;
+  box-shadow: 0 0 10px rgb(0, 255, 170);
+  display: flex;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.movies_container img{
+  width: 250px;
+  height: 100%;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
+}
+
+.movies_search_info{
+
+  width: 100%;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
+  color: #fff;
+}
+.movies_search_info p{
+  font-size: 15px;
+}
+
+.btnWatch{
+  width: 250px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  background-color: rgb(3, 145, 228);
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+}
