@@ -21,7 +21,6 @@ export default function MoviesBlock({currentPage}) {
     return getFilmsPoster();
   }, [currentPage, language]);
 
-  console.log(films);
 
   React.useEffect(() => {
       async function getGenres(){
@@ -36,6 +35,8 @@ export default function MoviesBlock({currentPage}) {
 
       return getGenres()
   },[setCategories, language])
+
+  
   return (
     <div className="container">
       <div className="wrapper_movies">

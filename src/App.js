@@ -19,7 +19,7 @@ function App() {
           <Route index path="/" element={<Home currentPage={currentPage}/>} excet />
           <Route path="popular/:id" element={<TrailPopup/>} excet />
           <Route path="popular/*" element={<TrailPopup/>}  />
-          <Route path="search" element={<SearchResult/>}  excet />
+          <Route path="search/:id" element={<SearchResult/>}  excet />
           
       </Routes>
         

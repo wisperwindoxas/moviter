@@ -54,7 +54,7 @@ code {
 .searchBtn{
   border: none;
   outline: none;
-  background-color: rgb(219, 164, 11);
+  background-color: rgb(219, 164, 11) !important;
   color: #fff;
   padding: 10px 20px;
   border-radius: 0 10px 10px 0;
@@ -62,6 +62,7 @@ code {
   -moz-border-radius: 0 10px 10px 0;
   -ms-border-radius: 0 10px 10px 0;
   -o-border-radius: 0 10px 10px 0;
+  
   cursor: pointer;
 }
 
@@ -69,10 +70,11 @@ code {
 .movies_block{
   padding: 30px 0;
   margin-top: 70px;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .movies_container{
