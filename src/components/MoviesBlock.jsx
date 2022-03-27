@@ -2,6 +2,9 @@ import React from 'react'
 import { Link} from 'react-router-dom';
 import axios from 'axios'
 import {Language} from './contextApi'
+import ScrollToTop from 'react-scroll-to-top';
+
+
 export default function MoviesBlock({currentPage}) {
   const [films, setFilms] = React.useState([]);
   const [categories, setCategories] = React.useState([])
@@ -40,19 +43,16 @@ export default function MoviesBlock({currentPage}) {
   return (
     <div className="container">
       <div className="wrapper_movies">
+        <ScrollToTop smooth color="#6f00ff" />;
         <div className="categories">
-            {categories.map(categorie => {
-                return <p key={categorie.id}>{categorie.name}</p>
-            })}
+          {categories.map((categorie) => {
+            return <p key={categorie.id}>{categorie.name}</p>;
+          })}
         </div>
-
         <div className="movies_cards">
           {films.map((film) => {
             return (
-              <Link
-                key={film.id}
-                to={`popular/${film.id}`}
-              >
+              <Link key={film.id} to={`popular/${film.id}`}>
                 <div
                   style={{
                     background: `url(https://image.tmdb.org/t/p/w500${film.poster_path})`,
@@ -60,7 +60,6 @@ export default function MoviesBlock({currentPage}) {
                     backgroundSize: 'cover',
                   }}
                   className="card"
-                 
                 >
                   <div className="title">
                     <h3>{film.title}</h3>
