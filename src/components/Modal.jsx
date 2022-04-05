@@ -3,8 +3,6 @@ import {Language } from './contextApi'
 export default function Modal({video,setModal}) {
 	const [language] = React.useContext(Language)
 
-	console.log(language);
-
   return (
     <div className="modal">
       <svg

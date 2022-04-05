@@ -2,7 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import {Link, useParams} from 'react-router-dom'
 import {Language} from './contextApi'
-export default function Recommendations() {
+
+
+export default function Recommendations({onClick}) {
  const {id} = useParams()
  const [language] = React.useContext(Language)
 
@@ -26,7 +28,7 @@ export default function Recommendations() {
       <div className="recomendtion">
         {recoment.map((recoment) => {
           return (
-            <Link key={recoment.id}  to={`${recoment.id}`}>
+            <Link onClick={() => onClick()} key={recoment.id}  to={`/${recoment.id}`}>
               <div
                 key={recoment.id}
                 className="movies_recoment"
@@ -35,7 +37,12 @@ export default function Recommendations() {
                   backgroundSize: 'cover',
                   backgroundPosition: '100%',
                 }}
-              ></div>
+              >
+                <div className="overview_info">
+                    <h3>{recoment.title}</h3>
+                    <p>{recoment.overview}</p>
+                </div>
+              </div>
             </Link>
           );
         })}

@@ -1,20 +1,18 @@
 import React from 'react'
 import Header from './components/Header';
 import MoviesBlock from './components/MoviesBlock';
-import Paginations from './components/Pagination';
+
 import Slider from './components/Slider';
 
 
 
-export default function Home({currentPage}) {
+export default function Home() {
   return (
     <div className='home'>
-      
-        <Header/>
+          <Header/>
           <Slider/>
-
-          <MoviesBlock currentPage={currentPage}/>
-         <Paginations/>
+          <MoviesBlock/>
+        
     </div>
   )
 }

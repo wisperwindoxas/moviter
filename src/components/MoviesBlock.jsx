@@ -1,52 +1,72 @@
 import React from 'react'
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { currentPages } from './contextApi'
 import axios from 'axios'
-import {Language} from './contextApi'
+import { Language } from './contextApi'
 import ScrollToTop from 'react-scroll-to-top';
+import { animateScroll as scroll } from "react-scroll";
+import Pagination from '@mui/material/Pagination';
+import imbd from './img/imbd.png'
 
-
-export default function MoviesBlock({currentPage}) {
+export default function MoviesBlock() {
+  const [currentPage, setCurrentPage] = React.useContext(currentPages);
   const [films, setFilms] = React.useState([]);
   const [categories, setCategories] = React.useState([])
   const [language] = React.useContext(Language)
+  const [page, setPage] = React.useState([])
+
+
+
 
   React.useEffect(() => {
     async function getFilmsPoster() {
-      await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2&language=${
-          localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=60413a5f672cfb8007082bc512040ca2&language=${localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
         }&page=${currentPage}`
       )
-        .then((res) => res.json())
-        .then((json) => setFilms(json.results));
+      setFilms(response.data.results);
+      setPage(response.data.total_pages);
     }
 
     return getFilmsPoster();
   }, [currentPage, language]);
 
 
+
   React.useEffect(() => {
-      async function getGenres(){
-         const response = await axios.get(
-           `https://api.themoviedb.org/3/genre/movie/list?api_key=60413a5f672cfb8007082bc512040ca2&language=${
-             localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
-           }`
-         );
+    async function getGenres() {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/genre/movie/list?api_key=60413a5f672cfb8007082bc512040ca2&language=${localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
+        }&include_adult=true`
+      );
 
-         setCategories(response.data.genres);
-      }
+      setCategories(response.data.genres);
+    }
 
-      return getGenres()
-  },[setCategories, language])
+    return getGenres()
+  }, [setCategories, language])
 
-  
+
+  const scrollHandler = () => {
+    scroll.scrollToTop();
+    scroll.scrollTo(600, {
+      duration: 1500,
+      delay: 200,
+      smooth: true,
+      offset: 50,
+    });
+
+  }
+
+
+
   return (
     <div className="container">
       <div className="wrapper_movies">
-        <ScrollToTop smooth color="#6f00ff" />;
+        <ScrollToTop top="0" smooth color="#6f00ff" />;
         <div className="categories">
           {categories.map((categorie) => {
-            return <p key={categorie.id}>{categorie.name}</p>;
+            return <Link key={categorie.id} to={`/movies/${categorie.id}/${categorie.name}`}><p >{categorie.name}</p></Link>;
           })}
         </div>
         <div className="movies_cards">
@@ -66,7 +86,7 @@ export default function MoviesBlock({currentPage}) {
 
                     <div className="info_movies">
                       <div className="rating">
-                        <img src="./imbd.png" alt="" />
+                        <img src={imbd} alt="" />
                         <p>{film.vote_average}</p>
                       </div>
                       <div className="time">
@@ -124,6 +144,20 @@ export default function MoviesBlock({currentPage}) {
             );
           })}
         </div>
+      </div>
+
+      <div className="pagintaion">
+        <Link to={`/page/${currentPage}`}>
+          <Pagination
+            onChange={(_, num) => setCurrentPage(num)}
+            onClick={() => scrollHandler()}
+            count={page - 32500}
+            page={currentPage}
+            size="large"
+            defaultPage={1}
+            color="primary"
+          />
+        </Link>
       </div>
     </div>
   );

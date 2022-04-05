@@ -4,6 +4,8 @@ import Header from './Header';
 import axios from 'axios'
 import Recommendations from './Recommendations';
 import Modal from './Modal';
+import {animateScroll as scroll } from "react-scroll";
+
 import {Language} from './contextApi'
 
 export default function TrailPopup() {
@@ -59,6 +61,15 @@ export default function TrailPopup() {
   }, [id, language])
 
   
+  const scrollHandler = () => {
+    scroll.scrollToTop();
+    scroll.scrollTo(0,{
+      duration: 1000,
+      delay: 100,
+      smooth: true,
+      offset: 50,
+    });
+  }
 
   return (
     <div className="trail">
@@ -131,7 +142,7 @@ export default function TrailPopup() {
           </div>
         </div>
       </div>
-      <Recommendations id={id} />
+      <Recommendations id={id} onClick={scrollHandler} />
     </div>
   );
 }

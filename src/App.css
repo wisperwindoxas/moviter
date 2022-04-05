@@ -1,6 +1,22 @@
 * {
   background: transparent;
 }
+body::-webkit-scrollbar {
+  width: 0.5em;
+  height: 150px;
+
+}
+ 
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to top, rgb(248, 0, 0), rgb(35, 0, 231));
+  outline: 1px solid slategrey;
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
 
 header {
   width: 100%;
@@ -38,8 +54,12 @@ header {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+.search .input_search{
+  width: 100%;
+  display: block !important;
+}
 
-.search input {
+.search  input {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -48,6 +68,7 @@ header {
   outline: none;
   color: #ffffff;
   font-weight: 700;
+  
 }
 
 .search svg {
@@ -146,7 +167,7 @@ header {
   gap: 10px;
 }
 
-.categories p {
+.categories a {
   width: 100%;
   border-radius: 30px;
   padding: 8px;
@@ -165,19 +186,19 @@ header {
   align-items: center;
 }
 
-.categories p:nth-of-type(3n) {
+.categories a:nth-of-type(3n) {
   background-color: green;
 }
-.categories p:nth-of-type(2n) {
+.categories a:nth-of-type(2n) {
   background-color: rgb(8, 14, 179);
 }
-.categories p:nth-of-type(5n) {
+.categories a:nth-of-type(5n) {
   background-color: rgb(141, 13, 184);
 }
-.categories p:nth-of-type(7n) {
+.categories a:nth-of-type(7n) {
   background-color: rgb(213, 149, 12);
 }
-.categories p:nth-of-type(4n) {
+.categories a:nth-of-type(4n) {
   background-color: rgb(23, 41, 41);
 }
 
@@ -196,6 +217,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  
 }
 .card {
   border-radius: 20px;
@@ -271,6 +293,14 @@ header {
   justify-content: center;
   align-items: center;
   margin-right: 10px;
+}
+
+.pagintaion{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
 }
 
 .time svg {
@@ -439,9 +469,10 @@ a {
   padding: 20px;
 
   overflow: hidden;
+
 }
 .castPeople {
-  box-shadow: 0 0 5px gray;
+
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -452,7 +483,33 @@ a {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
+}
+
+.castPeople::-webkit-scrollbar {
+  width: 0.5em;
+  height: 12px;
+
+}
+ 
+.castPeople::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.726);
+  border-right: 50px solid rgb(233, 13, 13);
+  border-left: 50px solid rgb(35, 0, 231);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+ 
+.castPeople::-webkit-scrollbar-thumb {
+  background: linear-gradient(to left, rgb(248, 0, 0), rgb(35, 0, 231));
+  border-radius: 40px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
 }
 
 .castActories {
@@ -472,6 +529,9 @@ a {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+
+
 .recomendtion {
   width: 100%;
 
@@ -479,19 +539,35 @@ a {
   overflow-x: auto;
   display: flex;
   align-items: center;
+  margin: 30px;
+  position: relative;
 }
 
 .movies_recoment {
   min-width: 250px;
-  height: 300px;
+  height: 350px;
   border-radius: 10px;
-
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   cursor: pointer;
   margin-left: 10px;
+  overflow: hidden;
+
+}
+
+.movies_recoment:hover .overview_info{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transition: 0.2s ease-in-out;
+    -webkit-transition: 0.2s ease-in-out;
+    -moz-transition: 0.2s ease-in-out;
+    -ms-transition: 0.2s ease-in-out;
+    -o-transition: 0.2s ease-in-out;
 }
 
 .language {
