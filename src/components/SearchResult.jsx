@@ -5,10 +5,12 @@ import ScrollToTop from 'react-scroll-to-top';
 import { useParams, Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import { animateScroll as scroll } from "react-scroll";
+import { Language } from './contextApi';
 
 
 
 export default function SearchResult() {
+  const {language} = React.useContext(Language)
   const { id } = useParams();
   const [result, setResult] = React.useState([]);
   const [pageCurrent, setPageCurrent] = React.useState([]);
@@ -25,7 +27,7 @@ export default function SearchResult() {
     }
 
     return getSearchResult();
-  }, [id, page]);
+  }, [id, page, language]);
 
 
   function getCurrenPages(num) {

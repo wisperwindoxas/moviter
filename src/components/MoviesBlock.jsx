@@ -63,7 +63,7 @@ export default function MoviesBlock() {
   return (
     <div className="container">
       <div className="wrapper_movies">
-        <ScrollToTop top="0" smooth color="#6f00ff" />;
+        <ScrollToTop top="0" smooth color="#0044ff" />;
         <div className="categories">
           {categories.map((categorie) => {
             return <Link key={categorie.id} to={`/movies/${categorie.id}/${categorie.name}`}><p >{categorie.name}</p></Link>;

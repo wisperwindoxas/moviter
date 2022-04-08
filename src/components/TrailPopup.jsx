@@ -132,7 +132,7 @@ export default function TrailPopup() {
                     src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`}
                     alt=""
                   />
-                  <div className="  ">
+                  <div className="">
                     <strong>{cast.name}</strong>
                     <p>{cast.character}</p>
                   </div>

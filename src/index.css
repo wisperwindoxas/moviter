@@ -142,19 +142,25 @@ border: none;
   align-items: center;
   flex-direction: column;
   gap: 20px;
+ 
 }
 
 .movies_container{
   width: 1000px;
-  height: 250px;
+
+  height:auto;
   box-shadow: 0 0 10px rgb(0, 255, 170);
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+ 
 }
+
 
 .movies_container img{
   width: 250px;
@@ -167,7 +173,6 @@ border: none;
 }
 
 .movies_search_info{
-
   width: 100%;
   padding: 0 20px;
   height: 100%;
@@ -177,9 +182,12 @@ border: none;
   flex-direction: column;
   color: #fff;
 }
-.movies_search_info p{
-  font-size: 15px;
+
+.movies_search_info p,strong, h1{
+  padding: 10px 0;
 }
+
+
 
 .btnWatch{
   width: 250px;
@@ -196,10 +204,32 @@ border: none;
   font-weight: 900;
   color: #fff;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 .genres > .container{
   position: relative;
 }
+@media (max-width:992px){
+  .movies_container{
+    max-width: 400px ;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgb(27, 27, 27);
+  }
+
+  .movies_container img{
+    width: 100%;
+  }
+  .movies_search_info{
+    align-items: center;
+    justify-content: center;
+    
+    padding: 10px;
+  }
+}
+
 
 .wrapper_categories{
   margin-top: 150px;
@@ -209,6 +239,44 @@ border: none;
   grid-template-columns: repeat(5,1fr);
   gap: 20px;
   justify-items: center;
+  transition: 0.3s linear;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+}
+
+@media (max-width:1200px){
+  .wrapper_categories {
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+    -moz-transition: 0.3s linear;
+    -ms-transition: 0.3s linear;
+    -o-transition: 0.3s linear;
+}
+}
+@media (max-width:992px){
+  .wrapper_categories {
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+  }
+}
+@media (max-width:768px){
+  .wrapper_categories {
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+  }
+  .genre_name{
+    text-align: center;
+  }
+}
+@media (max-width:548px){
+  .wrapper_categories {
+    grid-template-columns: repeat(1,1fr);
+    justify-items: center;
+  }
 }
 
 .genre_name{

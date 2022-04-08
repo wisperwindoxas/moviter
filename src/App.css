@@ -217,9 +217,6 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  
-}
-.card {
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -230,6 +227,22 @@ header {
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transition: 0.2s ease-in;
+  -webkit-transition: 0.2s ease-in;
+  -moz-transition: 0.2s ease-in;
+  -ms-transition: 0.2s ease-in;
+  -o-transition: 0.2s ease-in;
+  cursor: pointer;
+  filter: grayscale(1) hue-rotate(90deg);
+  -webkit-filter: grayscale(1) hue-rotate(90deg);
 }
 .title {
   position: absolute;
@@ -417,7 +430,7 @@ a {
 }
 
 .movies_info {
-  width: 1020px;
+  max-width: 1020px;
   height: 450px;
 
   background: transparent;
@@ -446,6 +459,17 @@ a {
   list-style: none;
 }
 
+@media (max-width:1200px){
+  .videoTrail{
+      flex-direction: column;
+      height: auto;
+      padding: 20px 0;
+  }
+  .movieBlock{
+    flex-direction: column;
+  }
+}
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -468,6 +492,7 @@ a {
   width: 100%;
   padding: 20px;
 
+
   overflow: hidden;
 
 }
@@ -478,12 +503,25 @@ a {
   align-items: center;
   overflow-x: auto;
   border-radius: 10px;
-
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   padding: 20px;
+}
+
+@media (max-width:1200px){
+    .cast{
+      width: 100%;
+    }
+    .castPeople{
+ 
+      overflow-y: auto;
+      height: 400px;
+      width: 400px;
+      gap: 20px;
+      
+    }
 }
 
 .castPeople::-webkit-scrollbar {
@@ -557,6 +595,23 @@ a {
 
 }
 
+
+@media (max-width:1200px){
+  .recomendtion{
+    overflow-y: auto;
+    
+    height: 400px;
+    max-width: 490px;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .movies_recoment{
+    max-width: 200px;
+    height: 300px;
+  }
+
+}
 .movies_recoment:hover .overview_info{
     transform: translateY(0);
     -webkit-transform: translateY(0);

@@ -33,7 +33,7 @@ export default function Modal({video,setModal}) {
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboardWrite; encryptedMedia; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
       )}
     </div>
