@@ -3,7 +3,7 @@
 }
 body::-webkit-scrollbar {
   width: 0.5em;
-  height: 150px;
+  height: 10px;
 
 }
  
@@ -30,6 +30,11 @@ header {
   align-items: center;
   background-color: #0044ff;
 }
+
+
+
+
+
 
 .container {
   width: 1400px;
@@ -241,8 +246,7 @@ header {
   -ms-transition: 0.2s ease-in;
   -o-transition: 0.2s ease-in;
   cursor: pointer;
-  filter: grayscale(1) hue-rotate(90deg);
-  -webkit-filter: grayscale(1) hue-rotate(90deg);
+ 
 }
 .title {
   position: absolute;
@@ -595,6 +599,16 @@ a {
 
 }
 
+.full_page{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mobil_page{
+  display: none;
+}
+
 
 @media (max-width:1200px){
   .recomendtion{
@@ -679,6 +693,8 @@ a {
   cursor: pointer;
 }
 
+
+
 .watchBtn {
   width: auto;
   display: flex;
@@ -744,21 +760,106 @@ a {
   }
   .categories {
     grid-template-columns: repeat(3, 1fr);
+    
+  }
+
+  .full_categories{
+    display: none;
   }
 
   .categories p {
     width: 100%;
   }
+  .language {
+    display: none;
+    
+  }
+ 
 }
 @media (max-width: 578px) {
   .container {
-    max-width: 630px;
+    max-width: 100%;
   }
   .movies_cards {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .card{
+    max-width: 350px;
+    height: 300px;
+  }
   .pagination {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .movieBlock{
+    max-width: 100%;
+  }
+
+  .movies_info{
+    max-width: 100%;
+  }
+
+  .categories{
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 40px;
+    
+   
+
+  }
+
+  .categories  p{
+    font-size: 12px;
+  }
+
+  .movies_info p{
+    display: -webkit-box;
+    -webkit-line-clamp: 11;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobile_categories{
+    margin-top: 70px;
+    padding: 10px;
+    width: 100%;
+   
+    
+  }
+ 
+  .cast{
+    width: 360px;
+    margin-left: -36px;
+  }
+  .recomendtion{
+    margin-left: -20px;
+  }
+
+  .movies_recoment{
+   
+    height: 360px;
+  }
+
+
+  .slider{
+    height: 280px;
+  }
+
+  .carousel .control-prev.control-arrow {
+    left: 0;
+    height: 193px;
+}
+  .carousel .control-next.control-arrow {
+    height: 193px;
+}
+  .carousel .control-prev.control-arrow {
+    left: 0;
+    height: 193px;
+}
+
+  .carousel .control-dots{
+    bottom: -14px !important;
   }
 
   .pagination p {
@@ -770,6 +871,62 @@ a {
     -o-border-radius: 0;
     font-size: 18px;
   }
+  .movieBlock{
+    height: auto;
+    padding: 10px;
+    
+  }
+  .watchBtn{
+    margin: 10px auto;
+    padding:  0 40px;
+   
+    font-size: 18px;
+  }
+  .home > .container{
+    max-width: 100%;
+  }
+
+  .watch svg{
+    width: 20px;
+  }
+  .trail > .container{
+    max-width: 350px;
+  }
+  .full_page{
+    display: none;
+  }
+
+  .mobil_page{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+ 
+  }
+
+  .menu{
+    color: #fff;
+  }
+
+  .menu_left{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+  
+    background-color: rgb(37, 37, 37);
+  }
+  
+  .close{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+
+ 
 }
 
 @keyframes arrowRight {
@@ -798,3 +955,5 @@ a {
     -o-transition: 0.3s ease-in-out;
   }
 }
+
+

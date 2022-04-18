@@ -35,6 +35,7 @@ export default function Search() {
             
             {isValueLength.length > 1 ? <Link  onKeyDown={(e) =>  enterSearch(e)} to={`/search/${isValueLength}`}><input    className='searchBtn' type="button" value="Search" /></Link> : <button  className='searchBtn'>Search</button>}
         </div>
+          
         </form>
     </div>
   )

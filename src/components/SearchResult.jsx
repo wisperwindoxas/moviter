@@ -6,6 +6,7 @@ import { useParams, Link } from 'react-router-dom';
 import Pagination from '@mui/material/Pagination';
 import { animateScroll as scroll } from "react-scroll";
 import { Language } from './contextApi';
+import { motion } from "framer-motion"
 
 
 
@@ -57,7 +58,14 @@ export default function SearchResult() {
           {result.map((film) => {
             return (
               <Link key={film.id} to={`/popular/${film.id}`}>
-                <div className="movies_container">
+                <motion.div 
+                initial={{ opacity: 0, x:-1800 }}
+                whileInView={{ opacity: 1, x:0 }}
+                 animate={{ x: 0 }}
+                 transition={{ type: "tween", stiffness: 100 }}
+                className="movies_container"
+                >
+                  
                   <img
                     src={`https://image.tmdb.org/t/p/w500${film.poster_path}`}
                     alt={film.title}
@@ -68,7 +76,7 @@ export default function SearchResult() {
                     <strong>{film.release_date}</strong>
                     <button className="btnWatch">Watch</button>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             );
           })}

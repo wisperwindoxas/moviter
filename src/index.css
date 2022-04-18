@@ -232,7 +232,7 @@ border: none;
 
 
 .wrapper_categories{
-  margin-top: 150px;
+  margin-top: 50px;
   width: 100%;
   padding: 10px;
   display: grid;
@@ -274,23 +274,24 @@ border: none;
 }
 @media (max-width:548px){
   .wrapper_categories {
-    grid-template-columns: repeat(1,1fr);
+
+    grid-template-columns: repeat(2,1fr);
     justify-items: center;
   }
 }
 
 .genre_name{
-  position: absolute;
-  top: 100px;
-  left: 20px;
+
+  margin-top: 120px;
   color: #fff;
   font-size: 40px;
+ 
 }
 
 
 .movies_blocks{
-  width: 250px;
-  height: 380px;
+  width: 150px;
+  height: 250px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -306,6 +307,7 @@ border: none;
   -ms-transition: 0.3s linear;
   -o-transition: 0.3s linear;
   perspective-origin: top;
+  font-size: 12px;
 }
 
 .movies_blocks:hover{
@@ -341,6 +343,7 @@ border: none;
   color: #fff;
 }
 
+
 .title_movies{
   width: 100%;
 }
@@ -364,7 +367,7 @@ border: none;
 
 
 .movies_blocks_info h3{
-    font-size: 22px;
+    font-size: 16px;
     text-align: center;
 }
 

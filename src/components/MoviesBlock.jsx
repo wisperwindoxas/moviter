@@ -2,16 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { currentPages } from './contextApi'
 import axios from 'axios'
+import { motion } from "framer-motion"
 import { Language } from './contextApi'
 import ScrollToTop from 'react-scroll-to-top';
 import { animateScroll as scroll } from "react-scroll";
 import Pagination from '@mui/material/Pagination';
 import imbd from './img/imbd.png'
+import Categories from './Categories';
 
 export default function MoviesBlock() {
   const [currentPage, setCurrentPage] = React.useContext(currentPages);
   const [films, setFilms] = React.useState([]);
-  const [categories, setCategories] = React.useState([])
+
   const [language] = React.useContext(Language)
   const [page, setPage] = React.useState([])
 
@@ -33,18 +35,7 @@ export default function MoviesBlock() {
 
 
 
-  React.useEffect(() => {
-    async function getGenres() {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=60413a5f672cfb8007082bc512040ca2&language=${localStorage.getItem('language') === 'eng' ? 'en-US' : 'ru-RU'
-        }&include_adult=true`
-      );
 
-      setCategories(response.data.genres);
-    }
-
-    return getGenres()
-  }, [setCategories, language])
 
 
   const scrollHandler = () => {
@@ -63,17 +54,18 @@ export default function MoviesBlock() {
   return (
     <div className="container">
       <div className="wrapper_movies">
-        <ScrollToTop top="0" smooth color="#0044ff" />;
-        <div className="categories">
-          {categories.map((categorie) => {
-            return <Link key={categorie.id} to={`/movies/${categorie.id}/${categorie.name}`}><p >{categorie.name}</p></Link>;
-          })}
+        <ScrollToTop top="0" smooth color="#0044ff" />
+        <div className="full_categories">
+          <Categories/>
         </div>
         <div className="movies_cards">
           {films.map((film) => {
             return (
               <Link key={film.id} to={`popular/${film.id}`}>
-                <div
+                <motion.div
+                   initial={{ opacity: 0 }}
+                   whileInView={{ opacity: 1 }}
+                   viewport={{ once: true }}
                   style={{
                     background: `url(https://image.tmdb.org/t/p/w500${film.poster_path})`,
                     backgroundRepeat: 'no-repeat',
@@ -139,7 +131,7 @@ export default function MoviesBlock() {
                       </svg>
                     </button>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             );
           })}
@@ -151,7 +143,7 @@ export default function MoviesBlock() {
           <Pagination
             onChange={(_, num) => setCurrentPage(num)}
             onClick={() => scrollHandler()}
-            count={page - 32500}
+            count={page - 32800}
             page={currentPage}
             size="large"
             defaultPage={1}

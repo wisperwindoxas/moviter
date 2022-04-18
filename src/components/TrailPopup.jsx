@@ -60,9 +60,9 @@ export default function TrailPopup() {
     //
   }, [id, language])
 
-  
+  scroll.scrollToTop(0);
+
   const scrollHandler = () => {
-    scroll.scrollToTop();
     scroll.scrollTo(0,{
       duration: 1000,
       delay: 100,

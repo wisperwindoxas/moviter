@@ -6,7 +6,7 @@ import axios from 'axios'
 import {Language} from './contextApi'
 import ScrollToTop from 'react-scroll-to-top';
 import {animateScroll as scroll } from "react-scroll";
-
+import { motion } from "framer-motion"
 export default function Genres() {
 
     const {id,slug} = useParams()
@@ -52,8 +52,17 @@ export default function Genres() {
         {genres.map(film => {
             return (
             <Link  key={film.id} to={`popular/${film.id}`}>
-            <div
-               
+            <motion.div
+                initial={{ scale: 0,opacity: 0 }}
+                animate={{ rotate: 360, scale: 1 }}
+                whileInView={{ opacity: 1, x:0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20
+                }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 className="movies_blocks"
                  style={{
                     background: `url(https://image.tmdb.org/t/p/w500/${film.poster_path})`,
@@ -64,7 +73,7 @@ export default function Genres() {
                 <div className="top_screen"></div>
                 <div className="movies_blocks_info">
                     <h3>{film.title}</h3>
-                    <p>genres</p>
+                 
                     <div className="title_movies">
                         <div className="time_data">
                             <strong>
@@ -79,7 +88,7 @@ export default function Genres() {
                     </div>
                    
                 </div>
-            </div>
+            </motion.div>
             </Link>
             )
             
