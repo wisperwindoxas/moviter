@@ -13,18 +13,8 @@
 }
 
 
-body{
-background-color: rgb(46, 46, 46);
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
-.App{
- background-color: rgb(46, 46, 46);
-}
 
 .recomendtion::-webkit-scrollbar {
   width:0.5rem;
@@ -124,12 +114,6 @@ border: none;
   background-color: rgb(219, 164, 11) !important;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 0 10px 10px 0;
-  -webkit-border-radius: 0 10px 10px 0;
-  -moz-border-radius: 0 10px 10px 0;
-  -ms-border-radius: 0 10px 10px 0;
-  -o-border-radius: 0 10px 10px 0;
-  
   cursor: pointer;
 }
 
@@ -246,39 +230,6 @@ border: none;
   -o-transition: 0.3s linear;
 }
 
-@media (max-width:1200px){
-  .wrapper_categories {
-    grid-template-columns: repeat(4,1fr);
-    justify-items: center;
-    transition: 0.3s linear;
-    -webkit-transition: 0.3s linear;
-    -moz-transition: 0.3s linear;
-    -ms-transition: 0.3s linear;
-    -o-transition: 0.3s linear;
-}
-}
-@media (max-width:992px){
-  .wrapper_categories {
-    grid-template-columns: repeat(3,1fr);
-    justify-items: center;
-  }
-}
-@media (max-width:768px){
-  .wrapper_categories {
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-  }
-  .genre_name{
-    text-align: center;
-  }
-}
-@media (max-width:548px){
-  .wrapper_categories {
-
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-  }
-}
 
 .genre_name{
 
@@ -290,8 +241,8 @@ border: none;
 
 
 .movies_blocks{
-  width: 150px;
-  height: 250px;
+  width: 250px;
+  height: 350px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -394,4 +345,53 @@ border: none;
   background: rgba(0, 0, 0, 0.938);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+
+@media (max-width:1200px){
+  .wrapper_categories {
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    transition: 0.3s linear;
+    -webkit-transition: 0.3s linear;
+    -moz-transition: 0.3s linear;
+    -ms-transition: 0.3s linear;
+    -o-transition: 0.3s linear;
+}
+}
+@media (max-width:992px){
+  .wrapper_categories {
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+  }
+}
+@media (max-width:768px){
+  .wrapper_categories {
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+  }
+  .genre_name{
+    text-align: center;
+  }
+}
+@media (max-width:548px){
+  .wrapper_categories {
+    grid-template-columns: repeat(2,1fr);
+    justify-items: center;
+  }
+
+  .movies_blocks{
+    width: 150px;
+    height: 250px;
+  }
+  .time_data{
+    flex-direction: column;
+    padding: 0;
+  }
+  .time_data strong{
+    padding: 5px;
+  }
+  .movies_blocks_info{
+    justify-content: center;
+  }
 }
