@@ -231,6 +231,7 @@ header {
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
+
 }
 
 .card:hover::before{
@@ -245,9 +246,10 @@ header {
   justify-content: center;
   align-items: center;
   transition: background 0.3s ease-in-out;
+  border-radius: 20px;
 }
 
-.card:hover{
+/* .card:hover{
   transform: scale(1.05);
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
@@ -258,9 +260,9 @@ header {
   -moz-transition: 0.2s ease-in;
   -ms-transition: 0.2s ease-in;
   -o-transition: 0.2s ease-in;
-  cursor: pointer;
+
  
-}
+} */
 .title {
   position: absolute;
   bottom: 0;
@@ -386,8 +388,8 @@ a {
   content: '';
   background: linear-gradient(
     to right,
-    rgb(39, 39, 39),
-    rgba(31, 31, 31, 0.671)
+    rgba(199, 182, 31, 0.616),
+    rgba(12, 12, 12, 0.671)
   );
   position: absolute;
   width: 100%;
@@ -438,7 +440,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #16151a;
+ 
 }
 
 .genres > li {
@@ -663,6 +665,9 @@ z-index: 400;
 cursor: pointer;
 }
 
+.movies_reasult{
+  background-color: #16151a;
+}
 
 
 .watchBtn {
