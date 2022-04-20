@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 
-export default function Search() {
+export default function Search({setIsSearch}) {
 
   const [isValueLength, setIsValueLength] = React.useState('')
 
@@ -16,7 +16,6 @@ export default function Search() {
   
       if(e.code === 'Enter'){
         setIsValueLength(e.target.value)
-        console.log(isValueLength);
       }else{
         setIsValueLength("")
       }
@@ -33,7 +32,7 @@ export default function Search() {
             
             <input   onInput={(e) => getValueInfo(e)} type="search"  placeholder='Search for Movies,TV Series, Celebrities & more' required={true}/>
             
-            {isValueLength.length > 1 ? <Link  onKeyDown={(e) =>  enterSearch(e)} to={`/search/${isValueLength}`}><input    className='searchBtn' type="button" value="Search" /></Link> : <button  className='searchBtn'>Search</button>}
+            {isValueLength.length > 1 ? <Link  onKeyDown={(e) =>  enterSearch(e)} to={`/search/${isValueLength}`}><input onClick={() => setIsSearch(false)}  className='searchBtn mobile_search' type="button" value="Search" /></Link> : <button  className='searchBtn'>Search</button>}
         </div>
           
         </form>

@@ -372,6 +372,9 @@ a {
   align-items: center;
   flex-direction: column;
 }
+.genres_movies{
+  background: #16151a;
+}
 
 .videoTrail {
   width: 100%;
@@ -744,7 +747,6 @@ margin-right: 15px;
   }
 
   .categories {
-    border: 1px solid red;
     padding: 10px;
     width: 20px;
     grid-template-columns: repeat(4, 1fr);
@@ -753,6 +755,37 @@ margin-right: 15px;
   .categories p {
     width: 220px;
   }
+}
+
+.search_mobile{
+  width: 100%;  
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.search_mobile .search{
+    width: 300px;
+    
+}
+
+.search_mobile .search > .searchBtn{
+  display: none;
+  
+}
+
+.search_mobile .search > input{
+  font-size: 14px;
+}
+
+
+.search_mobile .search > input::placeholder{
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
@@ -934,6 +967,24 @@ margin-right: 15px;
     position: absolute;
     right: 20px;
     top: 20px;
+  }
+
+  .search_mobile{
+    width: 0px;
+    right: 50px;
+    top: 15px;
+    display: flex;
+    overflow: hidden;
+    
+  }
+
+  .search_mobile .search{
+    width: 300px;
+    padding: 0 0 0 10px ;
+  }
+
+  .search_mobile .search  input{
+    font-size: 13px !important;
   }
 
 

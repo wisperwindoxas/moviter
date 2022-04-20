@@ -42,7 +42,7 @@ export default function Genres() {
 
 
   return (
-    <div className='genres'>
+    <div className='genres_movies'>
         <ScrollToTop top="0" smooth color="#6f00ff" />;
         <Header/>
         <div className="container">

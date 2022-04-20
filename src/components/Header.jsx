@@ -10,6 +10,9 @@ export default function Header() {
 
   const [, setLanguage] = React.useContext(Language)
   const [menu, setMenu] = React.useState(false)
+  const [isSearch, setIsSearch] = React.useState(false)
+
+
   const selectEng = () => {
     setLanguage("eng")
     localStorage.setItem('language', 'eng')
@@ -51,7 +54,8 @@ export default function Header() {
         <svg style={menu ? {opacity:0, transform:"translateX(140px)"} : {opacity: 1}} onClick={() => setMenu(true)}  className='menu' fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="32px" height="32px"><path d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"/></svg>
       
           <Logo/>
-         <svg className='searchBtns'  fill="#fff" strokeWidth="0" viewBox="0 0 16 16" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
+
+         <svg onClick={() => setIsSearch(!isSearch)} className='searchBtns'  fill="#fff" strokeWidth="0" viewBox="0 0 16 16" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path></svg>
       </div>
       </div>
 
@@ -61,6 +65,9 @@ export default function Header() {
           <div className="mobile_categories">
              <Categories/>
           </div>
+      </div>
+      <div className="search_mobile" style={isSearch ? {width: '300px'}: {width:"0px"}}>
+          <Search setIsSearch={setIsSearch}/>
       </div>
     </header>
   );
