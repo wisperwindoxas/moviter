@@ -143,6 +143,7 @@ export default function TrailPopup() {
         </div>
       </div>
       <Recommendations id={id} onClick={scrollHandler} />
+      <footer></footer>
     </div>
   );
 }

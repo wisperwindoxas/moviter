@@ -24,7 +24,7 @@ export default function Recommendations({onClick}) {
 
   return (
     <div className="container">
-      <h3 style={{ textAlign: 'left' }}>Recomendatsiya</h3>
+      <h3  style={{ textAlign: 'left',padding:"0px 20px" }}>Recomendatsiya</h3>
       <div className="recomendtion">
         {recoment.map((recoment) => {
           return (

@@ -66,7 +66,7 @@ export default function Header() {
              <Categories/>
           </div>
       </div>
-      <div className="search_mobile" style={isSearch ? {width: '300px'}: {width:"0px"}}>
+      <div className="search_mobile" style={isSearch ? {width: '70%'}: {width:"0px"}}>
           <Search setIsSearch={setIsSearch}/>
       </div>
     </header>

@@ -373,6 +373,7 @@ a {
   flex-direction: column;
 }
 .genres_movies{
+  max-width: 100%;
   background: #16151a;
 }
 
@@ -443,6 +444,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
  
 }
 
@@ -455,7 +457,7 @@ a {
   .videoTrail{
       flex-direction: column;
       height: auto;
-      padding: 20px 0;
+      padding: 80px 0;
   }
   .movieBlock{
     flex-direction: column;
@@ -475,8 +477,10 @@ a {
 }
 
 .movie_genres {
+  max-width: 100%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   padding: 10px 0;
 }
 
@@ -489,7 +493,7 @@ a {
 
 }
 .castPeople {
-
+  max-width: 100%;
   margin-top: 10px;
   display: flex;
   align-items: center;
@@ -511,10 +515,9 @@ a {
       width: 100%;
     }
     .castPeople{
- 
       overflow-y: auto;
       height: 400px;
-      width: 400px;
+      width: 100%;
       gap: 20px;
       
     }
@@ -564,17 +567,19 @@ a {
   overflow: hidden;
 }
 
+.watch_error{
+  text-align: center;
+}
 
 
 .recomendtion {
   width: 100%;
-
   padding: 10px;
   overflow-x: auto;
   display: flex;
   align-items: center;
-  margin: 30px;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .movies_recoment {
@@ -658,6 +663,7 @@ z-index: 300;
 display: flex;
 justify-content: center;
 align-items: center;
+padding: 10px;
 }
 
 .modal svg {
@@ -690,24 +696,30 @@ border-radius: 10px;
 -moz-border-radius: 10px;
 -ms-border-radius: 10px;
 -o-border-radius: 10px;
-margin-top: 40px;
+margin: 40px 0;
 }
 .watchBtn svg{
 margin-right: 15px;
+}
+
+footer{
+  width: 100%;
+  height: 150px;
+  
 }
 
 
 
 @media (max-width:1200px){
   .container{
-    max-width: 1100px;
+    max-width: 1065px;
   }
   .recomendtion{
     overflow-y: auto;
     height: 400px;
-    max-width: 490px;
+    max-width: 98%;
     padding: 10px;
-    gap: 10px;
+    margin: 0 auto;
   }
 
   .movies_cards {
@@ -770,7 +782,7 @@ margin-right: 15px;
 }
 
 .search_mobile .search{
-    width: 300px;
+    width: 400px;
     
 }
 
@@ -872,13 +884,7 @@ margin-right: 15px;
     
   }
  
-  .cast{
-    width: 360px;
-    margin-left: -36px;
-  }
-  .recomendtion{
-    margin-left: -20px;
-  }
+  
 
   .movies_recoment{
    
@@ -933,9 +939,7 @@ margin-right: 15px;
   .watch svg{
     width: 20px;
   }
-  .trail > .container{
-    max-width: 350px;
-  }
+
   .full_page{
     display: none;
   }
@@ -971,26 +975,47 @@ margin-right: 15px;
 
   .search_mobile{
     width: 0px;
-    right: 50px;
+    right: 40px;
     top: 15px;
     display: flex;
     overflow: hidden;
+    margin-right: 10px;
+
     
+  }
+  .search_mobile .wrapper{
+    width: 100%;
   }
 
   .search_mobile .search{
-    width: 300px;
+    width: 100%;
+    
     padding: 0 0 0 10px ;
   }
 
   .search_mobile .search  input{
     font-size: 13px !important;
   }
-
-
- 
+  .watch_error{
+    font-size: 20px;
+    text-align: center;
+  }
+  
 }
 
+
+@media (max-width: 300px){
+  .mobil_page{
+    padding: 0 5px ;
+  }
+
+  .logo p{  
+       padding: 0 0px;
+      font-size: 18px;
+  }
+
+
+}
 @keyframes arrowRight {
   0% {
     transform: translateX(0px);
